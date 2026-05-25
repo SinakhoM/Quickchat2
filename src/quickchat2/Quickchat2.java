@@ -55,7 +55,37 @@ System.out.println("Message ID: "
 System.out.println("Valid ID: "
         + msg.checkMessageID());
  System.out.println("Message Hash: "
-        + msg.createMessageHash());                   }
+        + msg.createMessageHash());
+                    System.out.println("""
+        
+        Choose an option:
+        1. Send Message
+        2. Disregard Message
+        3. Store Message
+        """);
+
+int sendOption = input.nextInt();
+input.nextLine();
+
+switch (sendOption) {
+
+    case 1 -> System.out.println(
+                "Message successfully sent."
+        );
+
+    case 2 -> System.out.println(
+                "Press 0 to delete message."
+        );
+
+    case 3 -> System.out.println(
+                "Message successfully stored."
+        );
+
+    default -> System.out.println(
+                "Invalid option."
+        );
+
+}}
 
                     break;
 
