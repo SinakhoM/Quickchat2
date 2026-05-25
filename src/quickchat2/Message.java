@@ -1,17 +1,38 @@
 package quickchat2;
+import java.util.Random;
 
 public class Message {
 
     private String recipient;
     private String messageText;
+    private String messageID;
+private static int totalMessages = 0;
 
     public Message(String recipient, String messageText) {
 
-        this.recipient = recipient;
-        this.messageText = messageText;
+    this.recipient = recipient;
+    this.messageText = messageText;
 
-    }
+    this.messageID = generateMessageID();
 
+    totalMessages++;
+
+}
+private String generateMessageID() {
+
+    Random random = new Random();
+
+    long number = 1000000000L
+            + (long)(random.nextDouble() * 8999999999L);
+
+    return String.valueOf(number);
+
+}
+public boolean checkMessageID() {
+
+    return messageID.length() == 10;
+
+}
     // Check recipient number
     public String checkRecipientCell() {
 
@@ -45,4 +66,10 @@ public class Message {
 
     }
 
+ 
+public String getMessageID() {
+
+    return messageID;
+
+}
 }

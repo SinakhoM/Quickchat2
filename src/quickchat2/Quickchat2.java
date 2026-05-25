@@ -49,7 +49,11 @@ public class Quickchat2 {
                         System.out.println(msg.checkRecipientCell());
 
                         System.out.println(msg.checkMessageLength());
+System.out.println("Message ID: "
+        + msg.getMessageID());
 
+System.out.println("Valid ID: "
+        + msg.checkMessageID());
                     }
 
                     break;
