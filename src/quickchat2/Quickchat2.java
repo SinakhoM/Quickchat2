@@ -3,6 +3,10 @@ package quickchat2;
 import java.util.Scanner;
 
 public class Quickchat2 {
+    static String[] sentMessages = new String[100];
+
+static int messageCount = 0;
+    
 
     public static void main(String[] args) {
 
@@ -28,8 +32,7 @@ public class Quickchat2 {
 
             switch (option) {
 
-                case 1:
-
+                case 1 -> {
                     System.out.print("How many messages would you like to send? ");
                     numMessages = input.nextInt();
                     input.nextLine();
@@ -43,59 +46,54 @@ public class Quickchat2 {
 
                         System.out.print("Enter your message: ");
                         String text = input.nextLine();
-
+                        
                         Message msg = new Message(recipient, text);
-
+                        sentMessages[messageCount] = text;
+                        messageCount++;
+                        
+                        
                         System.out.println(msg.checkRecipientCell());
 
                         System.out.println(msg.checkMessageLength());
-System.out.println("Message ID: "
-        + msg.getMessageID());
+                        System.out.println("Message ID: "
+                                + msg.getMessageID());
+                        
+                        System.out.println("Valid ID: "
+                                + msg.checkMessageID());
+                        System.out.println("Message Hash: "
+                                + msg.createMessageHash());
+                        System.out.println("""
+                                                                                                                       Choose an option:
+                                                               1. Send Message
+                                                               2. Disregard Message
+                                                               3. Store Message
+                                                               """);
+                        
+                        int sendOption = input.nextInt();
+                        input.nextLine();
+                        
+                        switch (sendOption) {
+                            
+                            
+                            case 2 -> System.out.println(
+                                    "Press 0 to delete message."
+                            );
+                            
+                            case 3 -> System.out.println(
+                                    "Message successfully stored."
+                            );
+                            
+                            default -> System.out.println(
+                                    "Invalid option."
+                            );
+                            
+                        }}              }
 
-System.out.println("Valid ID: "
-        + msg.checkMessageID());
- System.out.println("Message Hash: "
-        + msg.createMessageHash());
-                    System.out.println("""
-        
-        Choose an option:
-        1. Send Message
-        2. Disregard Message
-        3. Store Message
-        """);
+                case 2 -> System.out.println("Coming Soon.");
 
-int sendOption = input.nextInt();
-input.nextLine();
+                case 3 -> System.out.println("Goodbye!");
 
-switch (sendOption) {
-        
-
-    case 2 -> System.out.println(
-                "Press 0 to delete message."
-        );
-
-    case 3 -> System.out.println(
-                "Message successfully stored."
-        );
-
-    default -> System.out.println(
-                "Invalid option."
-        );
-
-}}
-
-                    break;
-
-                case 2:
-                    System.out.println("Coming Soon.");
-                    break;
-
-                case 3:
-                    System.out.println("Goodbye!");
-                    break;
-
-                default:
-                    System.out.println("Invalid option.");
+                default -> System.out.println("Invalid option.");
             }
 
         } while (option != 3);
