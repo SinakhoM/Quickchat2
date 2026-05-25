@@ -54,7 +54,8 @@ System.out.println("Message ID: "
 
 System.out.println("Valid ID: "
         + msg.checkMessageID());
-                    }
+ System.out.println("Message Hash: "
+        + msg.createMessageHash());                   }
 
                     break;
 

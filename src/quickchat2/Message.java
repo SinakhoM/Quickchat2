@@ -66,7 +66,22 @@ public boolean checkMessageID() {
 
     }
 
- 
+ public String createMessageHash() {
+
+    String[] words = messageText.split(" ");
+
+    String firstWord = words[0];
+
+    String lastWord = words[words.length - 1];
+
+    return messageID.substring(0, 2)
+            + ":"
+            + totalMessages
+            + ":"
+            + firstWord.toUpperCase()
+            + lastWord.toUpperCase();
+
+}
 public String getMessageID() {
 
     return messageID;
