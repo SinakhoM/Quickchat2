@@ -68,10 +68,7 @@ int sendOption = input.nextInt();
 input.nextLine();
 
 switch (sendOption) {
-
-    case 1 -> System.out.println(
-                "Message successfully sent."
-        );
+        
 
     case 2 -> System.out.println(
                 "Press 0 to delete message."
